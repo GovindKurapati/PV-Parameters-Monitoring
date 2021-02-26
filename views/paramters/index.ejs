@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Parameters</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+    <style>
+
+body{
+      font-family: 'Ubuntu', sans-serif;
+      margin: 0;
+      
+    }
+
+    .panel-details{
+      margin: 10px;
+      justify-content: space-around;
+      display: flex;   
+      align-items: center;   
+    }
+    .panel-info{
+      display: inline;
+      margin: 20px;
+    }
+
+    .right{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-container{
+      padding: 10px;
+      border: 1px solid gray;
+      padding-left: 20px;
+    }
+
+ 
+
+         .weather-box{
+            display: flex;
+            /* justify-content: end; */
+            width: 400px;
+            height: 150px;
+            background-color: #4b89ac;
+            box-shadow: 5px 8px 8px  #888888;
+            border-radius: 10px;
+            float: right;
+            margin: 0 10px;
+        }
+
+        .weather-image{
+            width: 150px;
+            background-color: #ace6f6;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .weather-content{
+            width: 250px;
+        }
+
+#weather-div{
+    display: flex;
+    width: 400px;
+    margin-left: 70%;
+}
+
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:  black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: green;
+}
+
+.active {
+  background-color: #0af712;
+}
+
+.second-row{
+  display: flex;
+  justify-content: space-around;
+}
+
+.chart-container{
+  background-color: #f8f8f8;
+  margin: 10px;
+  padding: 10px;
+  width: 800px;
+  height: 500px;
+}
+
+.chart-right{
+  display: flex;
+  width: 400px;
+  background-color: #eee;
+  align-items: center;
+  margin-top: 100px;
+  height: 300px;
+}
+
+.total-units{
+  display: flex;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  flex-wrap: wrap;
+  background-color: #ace6f6;
+}
+
+.third-row{
+  display: flex;
+  justify-content: space-around;  
+}
+
+.third-row-left{
+  display: flex;
+  width: 500px;
+  background-color: #eee;
+  margin: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.money-saved{
+  width: 300px;
+  margin: 10px;
+  height: 150px;
+  background-color: aquamarine;
+
+}
+    </style>
+    
+</head>
+<body>
+
+    <ul>
+        <li><a href="#">PV Paramters Monitoring</a></li>
+        <!-- <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li style="float:right"><a  href="#"></a></li> -->
+    </ul>
+      <br>    
+
+
+      
+      <div class="panel-details">
+        <div class="panel-container">
+        <h3 style="text-align: center;">Panel Details</h3>
+
+          <img src="https://thebetterindia-english.sgp1.digitaloceanspaces.com/uploads/2017/02/SOLAR_PANEL_214254_2465042f.jpg" alt="" width="500px">
+          <div class="panel-info" style="text-align: center;">
+            <h3>20 watt panel</h3>
+            <p>Voltage at Max Power  17.1 volts</p>
+            <p>Current at Max Power  1.17 amps</p>
+            <p>Open Circuit Voltage   &nbsp;21 volts</p>
+            <p>Short Circuit Currrent 1.31 amps</p>
+          </div>
+
+        </div>
+
+        <div class="right">
+
+          
+        <img src="https://image.freepik.com/free-vector/businessmen-use-solar-energy-panels-produce-electricity-city_335657-3225.jpg" alt="" width="400px" style="margin-right: 20px;">
+
+
+
+        <div class="weather-box">
+          <div class="weather-image">
+              <h3 style="text-align: center;margin-top: 10px ;margin-bottom:0;padding-top: 5px;"><%= weather.weather[0].main %></h3>
+              <img src="http://openweathermap.org/img/wn/<%=weather.weather[0].icon%>@2x.png" alt="" width="100px" height="90px" style="margin:0 25px;">
+              <p style="font-size: 1.2em;text-align: center;margin: 0 0;margin-top:-5px"><strong><%=weather.main.temp - 273.15 %> &deg;C</strong></p>
+          </div>
+          <div class="weather-content" style="text-align: center;">
+              <h3 style="text-align: center;"><i class="fas fa-map-marker-alt"></i> <%=weather.name%></h3>
+              <p style="display: inline;"><i class="fas fa-wind"></i> 23m/s</p>&nbsp;&nbsp;<p style="display: inline;"><i class="far fa-sun"></i>&nbsp;UV : <%=uv.value%></p>
+              <p style="margin: 5px 0;margin-top: 10px;" ><i class="fas fa-sun" id="sunrise"></i></p>
+              <p style="margin: 3px 0;"><i class="fas fa-cloud-sun" id="sunset"></i></p>
+          </div>
+      </div>
+
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="second-row">
+
+        <div class="chart-container">
+          <h2 style="text-align: center;">Power Graph</h2>    
+            <canvas id="voltage-chart"></canvas>
+        </div>
+
+        <div class="chart-right" style="text-align: center;">
+          <div class="total-units" >
+            <h3 style="margin: 20px 0 0 0;">Total units generated<br>(kWhr)</h3>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">30</p>
+          </div>
+          <div class="total-units">
+            <h3 style="margin: 20px 0 0 0;">Units Generated Today<br>(kWhr)</h3>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">2</p>
+          </div>
+        </div>
+      </div>       
+
+      <br><br>
+
+      <div class="third-row">
+
+        <div class="third-row-left">
+          <div class="money-saved">
+            <h2>Money Saved Totally</h2>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">₹ 400</p>
+          </div>
+          <div class="money-saved">
+            <h2>Money Saved Today</h2>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">₹ 2</p>
+          </div>
+
+
+        </div>
+
+        <div class="third-row-img">
+          <img src="https://image.freepik.com/free-vector/tiny-people-saving-money-piggy-bank-isolated-flat-illustration_74855-11124.jpg" alt="">
+        </div>
+
+      </div>
+
+
+
+     
+</body>
+
+<script> 
+
+let analysedata = []
+
+    
+let unix_timestamp_sunrise = <%=weather.sys.sunrise%>;
+let unix_timestamp_sunset = <%=weather.sys.sunset%>;
+
+ //sunrise
+var date = new Date(unix_timestamp_sunrise * 1000);
+var hours = date.getHours();
+var minutes = "0" + date.getMinutes();
+var seconds = "0" + date.getSeconds();
+var days = ['X','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY']
+var day = days[date.getDay()];
+
+var date1 = date.getDate();
+var month = date.getMonth();
+var year = date.getFullYear();
+//sunset
+var date2 = new Date(unix_timestamp_sunset * 1000);
+var hours2 = date2.getHours();
+var minutes2 = "0" + date2.getMinutes();
+var seconds2 = "0" + date2.getSeconds();
+
+var date22 = date2.getDate();
+var month2 = date2.getMonth() + 1;
+var year2 = date2.getFullYear();
+
+var formattedTime = hours + ':' + minutes.substr(-2);
+var formattedTime1 = hours2 + ':' + minutes2.substr(-2);
+var formattedDate = date22 + "/" + month2 + "/" + year2; 
+
+// document.querySelector(".date").innerHTML = day + " | " + formattedDate
+document.getElementById("sunrise").innerHTML = "Sunrise : " +  formattedTime.toString();
+document.getElementById("sunset").innerHTML = "Sunset : " +  formattedTime1.toString();   
+    
+
+    chartIt();
+
+    async function chartIt(){
+    const data = await getData();
+    var ctx1 = document.getElementById('voltage-chart').getContext('2d');
+    
+    var myChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: data.xdate,
+            datasets: [{
+                label: 'Power',
+                fill: false,
+                
+                data: data.ypowerdatachart,
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor:     'rgb(255, 99, 132)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Power',
+                        fontSize: 18
+                    },
+                    ticks: {
+                        callback:function(value,index,values){
+                            return value+' kWhr';
+                        },
+                        beginAtZero: true
+                    }
+                }],
+                xAxes:[{
+                    scaleLabel:{
+                        display:true,
+                        labelString:"Day",
+                        fontSize: 18
+                    }
+                }]
+            }
+        }
+    });
+    
+}
+
+function getData(){
+
+  var ttt = <%- JSON.stringify(last5daysdata) %>;
+  const ypowerdatachart =[]
+  const xdate =[]
+  for(var i=0;i<Object.keys(ttt).length;i++){
+    let perdaypower=0;
+    xdate.push((ttt[i][0].date).substring(0,2)+"/"+((ttt[i][0].date).substring(3,5)))
+     for(var j=0;j<Object.keys(ttt[i]).length;j++){
+      perdaypower += parseInt(ttt[i][j].power); 
+    }
+    ypowerdatachart.push(perdaypower)
+    }
+    analysedata.push(ypowerdatachart)
+    return {xdate,ypowerdatachart}
+}
+    </script>
+</html>
