@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="/images/Power.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/248f911c07.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Panel Monitoring</title>
+    <style>
+      body{
+    
+      }
+      .navbar{
+    margin-bottom: 2%;
+}
+
+
+.carousel{
+   width: 90%;
+   padding-left: 10%;
+   padding-bottom: 3%;
+}
+
+h1{
+    text-align: center;
+    padding-top: 1%;
+}
+
+#testimonial{
+   margin-top: 2%;
+}
+
+.undrawimages{
+    width: 75%;
+}
+
+/* .info-right{
+    padding-top: 7%;
+} */
+
+
+.footer{
+border-style: hidden;
+background-color: black;
+padding-top: 3%;
+padding-bottom: 1%;
+color:white;
+text-align: center;
+}
+
+a:hover{
+  background-color: green;
+}
+h6{
+  font-size: 1.1em;
+  margin: 20px;
+}
+
+.box{
+  background-color: #eee;
+  border: 1px solid #dfdddd;
+  border-radius: 10px;
+}
+.pad{
+  padding: 50px 0;
+}
+nav{
+  font-size: 1.2em;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="fas fa-solar-panel"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/pv">Your Panel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Signup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<!-- SLIDER -->
+  <div  class="container carouselsize">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <!-- <h5>First slide label</h5> -->
+              <!-- <p>Some representative placeholder content for the first slide.</p> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/flagged/photo-1566838803980-56bfa5300e8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <!-- <h5>Second slide label</h5> -->
+              <!-- <p>Some representative placeholder content for the second slide.</p> -->
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1584276433295-4b49a252e5ee?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1042&q=80" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <!-- <h5>Third slide label</h5> -->
+              <!-- <p>Some representative placeholder content for the third slide.</p> -->
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  </div>
+
+
+<!-- EXISTING PROBLEM -->
+<div data-aos="zoom-in">
+<div class="container">
+<div class="card" id="showcase-right">
+    <div class="card-header">
+     <h3 style="text-align: center;"> Existing Problem</h3>
+    </div>
+    <div class="card-body m-auto">
+      
+        <h5><i class="fas fa-chevron-circle-right"></i> System uses third-party apps to show performance data.</h5>
+        <h5><i class="fas fa-chevron-circle-right"></i> Cannot rely on the consistency of the data received.</h5>
+        <h5><i class="fas fa-chevron-circle-right"></i> Difficulty in comprehending the data obtained.</h5>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- SOLUTION -->
+
+  <h1 style="text-align: center;">Solution <i style="color: green;" class="far fa-check-circle"></i></h1>
+  <h3 style="text-align: center;"><i style="color: blue;" class="fas fa-chart-bar"></i> Visualize the data</h3>
+  <section id="info1">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-6">
+              <div data-aos="fade-right">  
+              <div class="info-left">
+               <img class="undrawimages" src="/images/visual_data.png" >
+            </div>
+            </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 pad">
+              <div data-aos="fade-left">  
+                <div class="info-right box">
+                    <h6><i class="fas fa-chevron-circle-right"></i> This system enables record of electrical units generated on day to day basis, with a maximum data for that can be visualised for 5 days. </h6>   
+                    <h6><i class="fas fa-chevron-circle-right"></i> The details on electricity generation on the particular day will be available till the time of recording the data. </h6>
+                    <h6><i class="fas fa-chevron-circle-right"></i> The data on electricity generation can be recorded both in terms of electricity units and cost equivalent.  </h6>
+
+
+             </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <h3 style="text-align: center;"><i style="color: chocolate;" class="fas fa-tools"></i> Maintenance</h3>
+    <section id=info2>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div data-aos="fade-right">  
+                     <div class="info-left">
+                         <img class="undrawimages" src="/images/Mail.png">
+                     </div>
+                     </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 pad">
+                  <div data-aos="fade-left">  
+                    <div class="info-right box">
+                        <h6><i class="fas fa-chevron-circle-right"></i> The page pops up relevant message with apt color code, to reveal the exact condition of the system </h6>     
+                        <h6><i class="fas fa-chevron-circle-right"></i> Green colored message shows healthy condition of the system.</h6>
+                        <h6><i class="fas fa-chevron-circle-right"></i>  Red colored message conveys requirement of immediate attention to restore normal functioning of the system.</h6>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+  </section>
+
+
+  <h3 style="text-align: center;"><i style="color: #6c5fa7;" class="fas fa-couch"></i> Sit back and Relax</h3>
+  <section id=info3>
+   
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div data-aos="fade-right">  
+                 <div class="info-left">
+                     <img class="undrawimages" src="/images/smart_home.png">
+                 </div>
+            </div>
+        </div>
+ 
+            <div class="col-md-6 col-sm-6 pad">
+              <div data-aos="fade-left">  
+                <div class="info-right box">
+                   <h6><i class="fas fa-chevron-circle-right"></i> The system designed through this project helps in regular monitoring of the condition of all the panels from a comfortable single point.  </h6>     
+                   <h6><i class="fas fa-chevron-circle-right"></i> This will help in reduction of manpower requirement, manual efforts and thus cost involved in manpower management.</h6>     
+                </div>
+            </div>
+
+        </div>
+       </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+    <footer class="footer">
+      <h4>Real time Monitoring of PV Panel</h4>
+        <p><i class="far fa-copyright"></i> Copyrights 2021</p>
+    </footer>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 2500
+      });
+    </script>
+
+</body>
+</html>

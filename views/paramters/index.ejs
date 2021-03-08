@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PV Parameters</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="/images/Power.png">
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -93,6 +96,8 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
 li a:hover:not(.active) {
@@ -155,7 +160,43 @@ li a:hover:not(.active) {
   margin: 10px;
   height: 150px;
   background-color: aquamarine;
+}
 
+.message-info{
+  width: 80%;
+  background-color: lightcoral;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.message-success{
+  width: 90%;
+  background-color: lightgreen;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.message-container{
+    border: 1px solid #eee;
+    margin:0 20%;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+
+.footer{
+border-style: hidden;
+background-color: black;
+padding-top: 2%;
+padding-bottom: 1%;
+color:white;
+text-align: center;
 }
     </style>
     
@@ -163,13 +204,12 @@ li a:hover:not(.active) {
 <body>
 
     <ul>
-        <li><a href="#">PV Paramters Monitoring</a></li>
-        <!-- <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
+        <li><a href="http://localhost:3000/"><i class="fas fa-solar-panel"></i> &nbsp;PV Paramters Monitoring</a></li>
+        <!-- <li><a href="http://localhost:3000/">Home</a></li> -->
+        <!-- <li><a href="#"></a></li> -->
         <li style="float:right"><a  href="#"></a></li> -->
     </ul>
       <br>    
-
 
       
       <div class="panel-details">
@@ -179,22 +219,21 @@ li a:hover:not(.active) {
           <img src="https://thebetterindia-english.sgp1.digitaloceanspaces.com/uploads/2017/02/SOLAR_PANEL_214254_2465042f.jpg" alt="" width="500px">
           <div class="panel-info" style="text-align: center;">
             <h3>20 watt panel</h3>
-            <p>Voltage at Max Power  17.1 volts</p>
-            <p>Current at Max Power  1.17 amps</p>
-            <p>Open Circuit Voltage   &nbsp;21 volts</p>
-            <p>Short Circuit Currrent 1.31 amps</p>
+            <p>Voltage at Max Power  <strong>17.1 volts</strong></p>
+            <p>Current at Max Power  <strong>1.17 amps</strong></p>
+            <p>Open Circuit Voltage   &nbsp;<strong>21 volts</strong></p>
+            <p>Short Circuit Currrent <strong>1.31 amps</strong></p>
           </div>
 
         </div>
 
         <div class="right">
-
           
         <img src="https://image.freepik.com/free-vector/businessmen-use-solar-energy-panels-produce-electricity-city_335657-3225.jpg" alt="" width="400px" style="margin-right: 20px;">
 
-
-
-        <div class="weather-box">
+        <div data-aos="fade-down">
+        
+        <div class="weather-box" >
           <div class="weather-image">
               <h3 style="text-align: center;margin-top: 10px ;margin-bottom:0;padding-top: 5px;"><%= weather.weather[0].main %></h3>
               <img src="http://openweathermap.org/img/wn/<%=weather.weather[0].icon%>@2x.png" alt="" width="100px" height="90px" style="margin:0 25px;">
@@ -207,11 +246,23 @@ li a:hover:not(.active) {
               <p style="margin: 3px 0;"><i class="fas fa-cloud-sun" id="sunset"></i></p>
           </div>
       </div>
+    </div>
 
         </div>
       </div>
       <br>
       <br>
+
+      <div data-aos="zoom-out">
+      <div class="message-container">
+        <h3 style="text-align: center;margin-top: 0;">Panel Condition</h3>
+        <div class="message-info" id="message">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p class="performanceMessage" style="display: inline;"></p>
+        </div>
+      </div>
+    </div>
+    <br>
 
       <div class="second-row">
 
@@ -220,47 +271,66 @@ li a:hover:not(.active) {
             <canvas id="voltage-chart"></canvas>
         </div>
 
+        <div data-aos="fade-left">
+
+       
         <div class="chart-right" style="text-align: center;">
           <div class="total-units" >
             <h3 style="margin: 20px 0 0 0;">Total units generated<br>(kWhr)</h3>
-            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">30</p>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;" class="totalunits">92</p>
           </div>
           <div class="total-units">
             <h3 style="margin: 20px 0 0 0;">Units Generated Today<br>(kWhr)</h3>
-            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">2</p>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;" class="todayunits">15</p>
           </div>
         </div>
-      </div>       
-
+      </div>
+      </div>      
       <br><br>
 
+
+     
+  
+
       <div class="third-row">
+        <div data-aos="fade-right">
 
         <div class="third-row-left">
           <div class="money-saved">
             <h2>Money Saved Totally</h2>
-            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">₹ 400</p>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;" class="totalamount">₹ 400</p>
           </div>
           <div class="money-saved">
             <h2>Money Saved Today</h2>
-            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;">₹ 2</p>
+            <p style="font-size: 2.5em;margin: 20px auto;padding-bottom: 30px;" class="todayamount">₹ 2</p>
           </div>
+        </div>
 
 
         </div>
 
         <div class="third-row-img">
-          <img src="https://image.freepik.com/free-vector/tiny-people-saving-money-piggy-bank-isolated-flat-illustration_74855-11124.jpg" alt="">
+          <img src="https://image.freepik.com/free-vector/tiny-people-saving-money-piggy-bank-isolated-flat-illustration_74855-11124.jpg" alt="" width="80%">
         </div>
 
       </div>
 
+      <footer class="footer">
+      <h4>Real time Monitoring of PV Panel</h4>
+        <p><i class="far fa-copyright"></i> Copyrights 2021</p>
+    </footer>
 
-
-     
+    
+         
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
 <script> 
+  AOS.init({
+    duration: 1500
+  });
+
 
 let analysedata = []
 
@@ -295,8 +365,10 @@ var formattedDate = date22 + "/" + month2 + "/" + year2;
 
 // document.querySelector(".date").innerHTML = day + " | " + formattedDate
 document.getElementById("sunrise").innerHTML = "Sunrise : " +  formattedTime.toString();
-document.getElementById("sunset").innerHTML = "Sunset : " +  formattedTime1.toString();   
-    
+document.getElementById("sunset").innerHTML = "Sunset : " +  formattedTime1.toString(); 
+
+let performance = 0;
+let weather = <%=weather.main.temp - 273.15 %>
 
     chartIt();
 
@@ -346,6 +418,20 @@ document.getElementById("sunset").innerHTML = "Sunset : " +  formattedTime1.toSt
     
 }
 
+performanceCheck()
+
+function performanceCheck(){
+  let performanceMessage = document.querySelector(".performanceMessage")
+  let messageTrue = false
+  if((performance[4]<performance[3] || performance[4]<performance[2]) && weather>=25 ){
+    performanceMessage.innerHTML = "Your panel needs maintenance"
+    messageTrue = true
+  }else{
+    document.querySelector("#message").className = "message-success"
+    performanceMessage.innerHTML = "Your panel is in good condition"
+  }
+}
+
 function getData(){
 
   var ttt = <%- JSON.stringify(last5daysdata) %>;
@@ -353,13 +439,23 @@ function getData(){
   const xdate =[]
   for(var i=0;i<Object.keys(ttt).length;i++){
     let perdaypower=0;
-    xdate.push((ttt[i][0].date).substring(0,2)+"/"+((ttt[i][0].date).substring(3,5)))
+    // xdate.push((ttt[i][0].date).substring(0,1)+"/"+((ttt[i][0].date).substring(2,3)))
+    xdate.push(ttt[i][0].date)
      for(var j=0;j<Object.keys(ttt[i]).length;j++){
       perdaypower += parseInt(ttt[i][j].power); 
     }
     ypowerdatachart.push(perdaypower)
     }
     analysedata.push(ypowerdatachart)
+    let totalUnits = <%-JSON.stringify(totalUnits) %>
+    let totalunits = parseInt(totalUnits.data)
+    document.querySelector(".totalunits").innerHTML = totalunits 
+    document.querySelector(".todayunits").innerHTML = ypowerdatachart[4]
+    document.querySelector(".totalamount").innerHTML = "₹ " +totalunits * 6
+    document.querySelector(".todayamount").innerHTML = "₹ " + ypowerdatachart[4] * 6
+
+    performance = ypowerdatachart
+
     return {xdate,ypowerdatachart}
 }
     </script>
