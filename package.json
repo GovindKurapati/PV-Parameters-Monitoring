@@ -4,7 +4,7 @@
   "description": "To monitor solar panel paramters",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Govind",
   "license": "ISC",

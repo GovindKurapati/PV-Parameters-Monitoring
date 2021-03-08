@@ -11,17 +11,17 @@ const fetch = require('node-fetch')
 
 app.use( express.static( "public" ) );
 
-mongoose.connect('mongodb://localhost:27017/pvpanel',{
-    useNewUrlParser:true,
-    useCreateIndex:true,
-    useUnifiedTopology:true
-});
-
-// mongoose.connect('mongodb+srv://govind:govi@cluster0.pdpxi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
+// mongoose.connect('mongodb://localhost:27017/pvpanel',{
 //     useNewUrlParser:true,
 //     useCreateIndex:true,
 //     useUnifiedTopology:true
 // });
+
+mongoose.connect('mongodb+srv://govind:govi@cluster0.pdpxi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
+    useNewUrlParser:true,
+    useCreateIndex:true,
+    useUnifiedTopology:true
+});
 
 // mongodb+srv://govind:<password>@cluster0.pdpxi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
@@ -153,7 +153,7 @@ app.get("/mail",(req,res)=>{
       });
 })
 
-app.listen(3000,()=>{
+app.listen(3000 || process.env.PORT,()=>{
     console.log("Server is listening at PORT 3000");
 })
 
